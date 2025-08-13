@@ -1,0 +1,86 @@
+/* Reset and general styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #0a0a0a, #1a1a1a, #000000);
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+}
+
+/* Navigation bar */
+nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Moving gradient text */
+.gradient-text {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(270deg, #00bfff, #000000, #00bfff);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Form styling */
+form {
+    max-width: 500px;
+    margin: auto;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    background: #111;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #00bfff;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0099cc;
+}
