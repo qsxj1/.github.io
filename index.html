@@ -1,110 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>pluschat</title>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(270deg, #CC5500, #3B2400, #CC5500);
-      background-size: 600% 600%;
-      animation: gradientMove 16s ease infinite;
-      color: white;
-      user-select: none;
-      display: flex;
-      flex-direction: column;
-    }
-
-    @keyframes gradientMove {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      padding: 10px 0;
-      font-size: 0.9rem;
-      opacity: 0.7;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* Top bar styles */
-    header {
-      width: 100%;
-      padding: 8px 0;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1rem;
-      color: #333;
-      background: linear-gradient(270deg, #ffffff, #e0e0e0, #ffffff);
-      background-size: 600% 600%;
-      animation: whiteGradientMove 10s ease infinite;
-      text-align: center;
-      user-select: none;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    @keyframes whiteGradientMove {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* Button-like link styling */
-    .app-button {
-      display: inline-block;
-      padding: 6px 14px;
-      background: #d9d9d9;
-      border-radius: 20px;
-      color: #333;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background 0.3s ease, color 0.3s ease;
-      user-select: none;
-      font-family: 'JetBrains Mono', monospace;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-
-    .app-button:hover {
-      background: #bfbfbf;
-      color: #000;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>PlusChat - Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <a href="http://nexin.fun/application.html" target="_blank" rel="noopener noreferrer" class="app-button">applications</a>
-  </header>
-  <main>pluschat</main>
-  <footer>run by SIMPLEAPI</footer>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="rules.html">Rules</a>
+        <a href="applications.html">Applications</a>
+        <a href="http://plus.nexin.fun/">Discord</a>
+    </nav>
+
+    <h1 class="gradient-text">Welcome to PlusChat</h1>
+    <p>Your community, your rules, your place to connect.</p>
 </body>
 </html>
