@@ -3,30 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PlusChat</title>
+  <title>PlusChat - Home</title>
   <style>
-    /* Make the entire page fill the viewport */
-    html, body {
+    /* Basic resets */
+    body, html {
+      margin: 0; padding: 0;
       height: 100%;
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, white, black);
+      background: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Navigation bar styling */
+    nav {
+      background: #111;
+      display: flex;
+      gap: 2rem;
+      padding: 1rem 2rem;
+      align-items: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Home link style - gradient text with animation and underline */
+    .nav-home {
+      position: relative;
+      cursor: default;
+      background: linear-gradient(270deg, #007bff, #000000, #007bff);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 6s ease infinite;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Discord link style */
+    .nav-discord {
+      color: white;
+      text-decoration: none;
+    }
+    .nav-discord:hover {
+      text-decoration: underline;
+    }
+
+    /* Main content center */
+    main {
+      flex-grow: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: white; /* text color */
-    }
-
-    /* The text style */
-    h1 {
       font-size: 5rem;
-      font-weight: bold;
-      /* Add a subtle shadow so it stands out on the gradient */
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
     }
   </style>
 </head>
 <body>
-  <h1>PlusChat</h1>
+  <nav>
+    <span class="nav-home">Home</span>
+    <a href="http://plus.nexin.fun/" class="nav-discord" target="_blank" rel="noopener noreferrer">Discord</a>
+    <a href="rules.html" class="nav-discord">Rules</a>
+  </nav>
+  <main>
+    PlusChat
+  </main>
 </body>
 </html>
