@@ -1,20 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Rizz Codes</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #D4B4B4;
-      textcolor: #333;
-    }
-    h1 { margin-top: 50px; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Verification Page</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #222;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  button {
+    padding: 1em 2em;
+    font-size: 1.2em;
+    cursor: pointer;
+    background: #7289da;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 20px;
+  }
+  #result {
+    font-size: 1.2em;
+  }
+</style>
 </head>
 <body>
-  <h1>Dev Of MC Pages🌍</h1>
-  <p>This is my first GitHub Pages website!</p>
+  <button id="verifyBtn">Verify</button>
+  <div id="result"></div>
+
+<script>
+  const webhookURL = 'YOUR_DISCORD_WEBHOOK_URL';
+
+  function generateRandomID(length = 8) {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let id = '';
+    for(let i = 0; i < length; i++) {
+      id += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return id;
+  }
+
+  async function sendToDiscord(id) {
+    const payload = {
+      content: `Completed Verification ID: ${id}`
+    };
+    try {
+      const response = await fetch(webhookURL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      return response.ok;
+    } catch (e) {
+      console.error('Error sending webhook:', e);
+      return false;
+    }
+  }
+
+  document.getElementById('verifyBtn').addEventListener('click', async () => {
+    const id = generateRandomID();
+    const success = await sendToDiscord(id);
+
+    const resultDiv = document.getElementById('result');
+    if(success) {
+      resultDiv.textContent = `Verification complete! Your ID is: ${id}`;
+    } else {
+      resultDiv.textContent = 'Failed to send verification. Please try again.';
+    }
+  });
+</script>
 </body>
 </html>
