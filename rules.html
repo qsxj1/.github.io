@@ -23,15 +23,13 @@
       font-weight: bold;
       font-size: 1.2rem;
     }
-    /* Same nav styles as index */
-    .nav-home {
-      cursor: pointer;
+    .nav-home, .nav-link {
       color: white;
-      text-decoration: underline;
-      text-underline-offset: 6px;
+      text-decoration: none;
+      cursor: pointer;
     }
-    .nav-home:hover {
-      color: #007bff;
+    .nav-home:hover, .nav-link:hover {
+      text-decoration: underline;
     }
     .nav-discord {
       color: white;
@@ -48,13 +46,20 @@
       margin: auto;
       line-height: 1.6;
     }
+    /* Indicate current page */
+    .current {
+      text-decoration: underline;
+      cursor: default;
+      opacity: 0.7;
+    }
   </style>
 </head>
 <body>
   <nav>
     <a href="index.html" class="nav-home">Home</a>
     <a href="http://plus.nexin.fun/" class="nav-discord" target="_blank" rel="noopener noreferrer">Discord</a>
-    <span class="nav-discord" style="opacity:0.6; cursor: default;">Rules</span>
+    <span class="current">Rules</span>
+    <a href="application.html" class="nav-link">Apply</a>
   </nav>
   <main>
     <h1>PlusChat Rules</h1>
