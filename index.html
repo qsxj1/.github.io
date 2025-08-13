@@ -9,7 +9,7 @@
     html, body {
       height: 100%;
       margin: 0;
-      font-family:'JetBrains Mono', monospace;
+      font-family: Arial, sans-serif;
       background: linear-gradient(270deg, #CC5500, #3B2400, #CC5500);
       background-size: 600% 600%;
       animation: gradientMove 16s ease infinite;
@@ -47,10 +47,43 @@
       opacity: 0.7;
       font-family: 'JetBrains Mono', monospace;
     }
+
+    /* Top bar styles */
+    header {
+      width: 100%;
+      padding: 8px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      color: #333;
+      background: linear-gradient(270deg, #ffffff, #e0e0e0, #ffffff);
+      background-size: 600% 600%;
+      animation: whiteGradientMove 10s ease infinite;
+      text-align: center;
+      user-select: none;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    @keyframes whiteGradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
   </style>
 </head>
 <body>
+  <header>
+    applications going to <a href="http://nexin.fun/application.html" target="_blank" rel="noopener noreferrer" style="color: #333; text-decoration: underline;">http://nexin.fun/application.html</a>
+  </header>
   <main>pluschat</main>
-  <footer>run by simplevps</footer>
+  <footer>run by SIMPLEAPI</footer>
 </body>
 </html>
