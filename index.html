@@ -3,37 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PlusChat - Home</title>
+  <title>pluschat</title>
   <style>
+    /* Make body fill entire screen */
     body, html {
-      margin: 0; padding: 0;
       height: 100%;
+      margin: 0;
       font-family: Arial, sans-serif;
-      background: black;
-      color: white;
       display: flex;
-      flex-direction: column;
-    }
-    nav {
-      background: #111;
-      display: flex;
-      gap: 2rem;
-      padding: 1rem 2rem;
+      justify-content: center;
       align-items: center;
+      background: linear-gradient(270deg, #FF6600, #4B2E00, #FF6600);
+      background-size: 600% 600%;
+      animation: gradientMove 16s ease infinite;
+      color: white;
+      font-size: 4rem;
       font-weight: bold;
-      font-size: 1.2rem;
+      user-select: none;
     }
-    .nav-home {
-      position: relative;
-      cursor: default;
-      background: linear-gradient(270deg, #007bff, #000000, #007bff);
-      background-size: 400% 400%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientMove 6s ease infinite;
-      text-decoration: underline;
-      text-underline-offset: 6px;
-    }
+
     @keyframes gradientMove {
       0% {
         background-position: 0% 50%;
@@ -45,33 +33,9 @@
         background-position: 0% 50%;
       }
     }
-    .nav-discord, .nav-link {
-      color: white;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .nav-discord:hover, .nav-link:hover {
-      text-decoration: underline;
-    }
-    main {
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 5rem;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
-    }
   </style>
 </head>
 <body>
-  <nav>
-    <span class="nav-home">Home</span>
-    <a href="http://plus.nexin.fun/" class="nav-discord" target="_blank" rel="noopener noreferrer">Discord</a>
-    <a href="rules.html" class="nav-link">Rules</a>
-    <a href="application.html" class="nav-link">Apply</a>
-  </nav>
-  <main>
-    PlusChat
-  </main>
+  pluschat
 </body>
 </html>
