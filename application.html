@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlusChat - Staff Application</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav {
+      background: #111;
+      display: flex;
+      gap: 2rem;
+      padding: 1rem 2rem;
+      align-items: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: -2rem -2rem 2rem -2rem; /* full width */
+    }
+    .nav-home, .nav-link {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .nav-home:hover, .nav-link:hover {
+      text-decoration: underline;
+    }
+    .nav-discord {
+      color: white;
+      text-decoration: none;
+    }
+    .nav-discord:hover {
+      text-decoration: underline;
+    }
+    .current {
+      text-decoration: underline;
+      cursor: default;
+      opacity: 0.7;
+    }
+    h1 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin-top: 1.5rem;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+      border: none;
+      font-size: 1rem;
+      background: #222;
+      color: white;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    button:disabled {
+      background: #555;
+      cursor: not-allowed;
+    }
+    .message {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="http://plus.nexin.fun/" class="nav-discord" target="_blank" rel="noopener noreferrer">Discord</a>
+    <a href="rules.html" class="nav-link">Rules</a>
+    <span class="current">Apply</span>
+  </nav>
+
+  <h1>Staff Application</h1>
+  <form id="applicationForm">
+    <label for="discordName">Discord Username:</label>
+    <input type="text" id="discordName" name="discordName" required placeholder="ExampleUser#1234" />
+
+    <label for="whyStaff">Why do you want to be staff?</label>
+    <textarea id="whyStaff" name="whyStaff" required placeholder="Tell us why you'd make a great staff member..."></textarea>
+
+    <label for="moreInfo">Additional information (optional)</label>
+    <textarea id="moreInfo" name="moreInfo" placeholder="Anything else you want to add"></textarea>
+
+    <button type="submit">Submit Application</button>
+  </form>
+
+  <div class="message" id="responseMessage"></div>
+
+  <script>
+    const webhookURL = 'YOUR_DISCORD_WEBHOOK_URL_HERE'; // <-- Replace this with your webhook URL
+
+    const form = document.getElementById('applicationForm');
+    const responseMessage = document.getElementById('responseMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const discordName = form.discordName.value.trim();
+      const whyStaff = form.whyStaff.value.trim();
+      const moreInfo = form.moreInfo.value.trim();
+
+      if (!discordName || !whyStaff) {
+        responseMessage.textContent = 'Please fill in all required fields.';
+        responseMessage.style.color = 'red';
+        return;
+      }
+
+      form.querySelector('button').disabled = true;
+      responseMessage.textContent = 'Sending application...';
+      responseMessage.style.color = 'white';
+
+      const embed = {
+        title: "New Staff Application",
+        color: 0x007bff,
+        fields: [
+          { name: "Discord Username", value: discordName, inline: false },
+          { name: "Why do you want to be staff?", value: whyStaff, inline: false },
+        ],
+        timestamp: new Date().toISOString(),
+      };
+
+      if (moreInfo) {
+        embed.fields.push({ name: "Additional Info", value: moreInfo, inline: false });
+      }
+
+      try {
+        const res = await fetch(webhookURL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ embeds: [embed] }),
+        });
+
+        if (res.ok) {
+          responseMessage.textContent = 'Application sent successfully! Thank you.';
+          responseMessage.style.color = 'lightgreen';
+          form.reset();
+        } else {
+          throw new Error(`Webhook error: ${res.status}`);
+        }
+      } catch (error) {
+        responseMessage.textContent = 'Failed to send application. Please try again later.';
+        responseMessage.style.color = 'red';
+        console.error(error);
+      } finally {
+        form.querySelector('button').disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
