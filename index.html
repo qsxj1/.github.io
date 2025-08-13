@@ -5,21 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>pluschat</title>
   <style>
-    /* Make body fill entire screen */
-    body, html {
+    html, body {
       height: 100%;
       margin: 0;
       font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(270deg, #FF6600, #4B2E00, #FF6600);
+      background: linear-gradient(270deg, #CC5500, #3B2400, #CC5500);
       background-size: 600% 600%;
       animation: gradientMove 16s ease infinite;
       color: white;
-      font-size: 4rem;
-      font-weight: bold;
       user-select: none;
+      display: flex;
+      flex-direction: column;
     }
 
     @keyframes gradientMove {
@@ -33,9 +29,26 @@
         background-position: 0% 50%;
       }
     }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px 0;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
   </style>
 </head>
 <body>
-  pluschat
+  <main>pluschat</main>
+  <footer>run by SIMPLEAPI</footer>
 </body>
 </html>
