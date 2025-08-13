@@ -1,79 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Verification Page</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #222;
-    color: #eee;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  button {
-    padding: 1em 2em;
-    font-size: 1.2em;
-    cursor: pointer;
-    background: #7289da;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    margin-bottom: 20px;
-  }
-  #result {
-    font-size: 1.2em;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlusChat</title>
+  <style>
+    /* Make the entire page fill the viewport */
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, white, black);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white; /* text color */
+    }
+
+    /* The text style */
+    h1 {
+      font-size: 5rem;
+      font-weight: bold;
+      /* Add a subtle shadow so it stands out on the gradient */
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+  </style>
 </head>
 <body>
-  <button id="verifyBtn">Verify</button>
-  <div id="result"></div>
-
-<script>
-  const webhookURL = 'https://discord.com/api/webhooks/1405001908338298981/HmPfNErq3UgAc90Ejwuqh0DuED9Qc1BtTABhoCyC-bNqBQgqm-eSsdzn13PrwXn8oYjG';
-
-  function generateRandomID(length = 8) {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let id = '';
-    for(let i = 0; i < length; i++) {
-      id += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return id;
-  }
-
-  async function sendToDiscord(id) {
-    const payload = {
-      content: `Completed Verification ID: ${id}`
-    };
-    try {
-      const response = await fetch(webhookURL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      return response.ok;
-    } catch (e) {
-      console.error('Error sending webhook:', e);
-      return false;
-    }
-  }
-
-  document.getElementById('verifyBtn').addEventListener('click', async () => {
-    const id = generateRandomID();
-    const success = await sendToDiscord(id);
-
-    const resultDiv = document.getElementById('result');
-    if(success) {
-      resultDiv.textContent = `Verification complete! Your ID is: ${id}`;
-    } else {
-      resultDiv.textContent = 'Failed to send verification. Please try again.';
-    }
-  });
-</script>
+  <h1>PlusChat</h1>
 </body>
 </html>
