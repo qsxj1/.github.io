@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PlusChat</title>
   <style>
+    /* ====== General Styles ====== */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -14,7 +15,11 @@
       flex-direction: column;
       align-items: center;
     }
-    /* Top bar */
+    a, button {
+      transition: all 0.3s ease;
+    }
+
+    /* ====== Navbar ====== */
     .navbar {
       width: 100%;
       background-color: #000;
@@ -26,6 +31,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
+      border-bottom: 1px solid #111;
     }
     .logo {
       font-size: 1.2em;
@@ -56,11 +62,19 @@
       border-radius: 20px;
       cursor: pointer;
     }
+    .nav-buttons button:hover {
+      border-color: #1e90ff;
+      box-shadow: 0 0 8px #1e90ff;
+    }
     .nav-buttons .login {
       background-color: #1e90ff;
       border: none;
     }
-    /* Hero section */
+    .nav-buttons .login:hover {
+      box-shadow: 0 0 12px #1e90ff;
+    }
+
+    /* ====== Hero Section ====== */
     .hero {
       text-align: center;
       margin-top: 80px;
@@ -73,6 +87,11 @@
       background-color: #1e90ff;
       padding: 5px 10px;
       border-radius: 10px;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px #1e90ff; }
+      100% { box-shadow: 0 0 20px #1e90ff; }
     }
     .hero p {
       color: #aaa;
@@ -98,7 +117,6 @@
       background-color: #111;
       color: #ccc;
       padding: 10px;
-      border-radius: 0;
     }
     .input-container button {
       padding: 10px 20px;
@@ -107,10 +125,53 @@
       background-color: #1e90ff;
       color: #fff;
       cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .input-container button:hover {
+      box-shadow: 0 0 12px #1e90ff;
+    }
+
+    /* ====== Cards Section ====== */
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 60px;
+      padding: 0 20px;
+      max-width: 1200px;
+    }
+    .card {
+      background-color: #111;
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+      color: #fff;
+      border: 1px solid #222;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #1e90ff;
+      border-color: #1e90ff;
+    }
+    .card-icon {
+      font-size: 2em;
+      color: #1e90ff;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: #aaa;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
   <div class="navbar">
     <div class="logo"><span>#</span> PlusChat</div>
     <div class="nav-links">
@@ -124,6 +185,7 @@
     </div>
   </div>
 
+  <!-- Hero -->
   <div class="hero">
     <h1>A sharp new way to <span>chat</span></h1>
     <p>Run your own chat server, control your data, and join a network of self-hosted instances. Built for privacy, simplicity and fun.</p>
@@ -131,6 +193,30 @@
       <input type="text" placeholder="yourname">
       <span>#pluschat.com</span>
       <button>Create</button>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">#</div>
+      <h3># Channels</h3>
+      <p>Create unique chat channels for topics, communities, and private groups.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💻</div>
+      <h3>Self Hosting</h3>
+      <p>Run PlusChat on your own server to have complete control over your data.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h3>Smart Anti-Spam</h3>
+      <p>Keep your community clean with intelligent spam detection and blocking.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⏰</div>
+      <h3>Scheduling</h3>
+      <p>Schedule messages and announcements to keep your members engaged.</p>
     </div>
   </div>
 </body>
