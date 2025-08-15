@@ -1,19 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>PlusChat - Home</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlusChat</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* Top bar */
+    .navbar {
+      width: 100%;
+      background-color: #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    .logo span {
+      color: #1e90ff;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.9em;
+    }
+    .nav-links a:hover {
+      color: #fff;
+    }
+    .nav-buttons button {
+      background-color: transparent;
+      border: 1px solid #555;
+      color: #fff;
+      padding: 5px 15px;
+      margin-left: 10px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .nav-buttons .login {
+      background-color: #1e90ff;
+      border: none;
+    }
+    /* Hero section */
+    .hero {
+      text-align: center;
+      margin-top: 80px;
+    }
+    .hero h1 {
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+    .hero h1 span {
+      background-color: #1e90ff;
+      padding: 5px 10px;
+      border-radius: 10px;
+    }
+    .hero p {
+      color: #aaa;
+      max-width: 600px;
+      margin: 15px auto;
+      font-size: 1em;
+    }
+    .input-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .input-container input {
+      padding: 10px;
+      border: none;
+      outline: none;
+      border-radius: 20px 0 0 20px;
+      background-color: #111;
+      color: #fff;
+      min-width: 200px;
+    }
+    .input-container span {
+      background-color: #111;
+      color: #ccc;
+      padding: 10px;
+      border-radius: 0;
+    }
+    .input-container button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 0 20px 20px 0;
+      background-color: #1e90ff;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="rules.html">Rules</a>
-        <a href="application.html">Applications</a>
-        <a href="http://plus.nexin.fun/">Discord</a>
-    </nav>
+  <div class="navbar">
+    <div class="logo"><span>#</span> PlusChat</div>
+    <div class="nav-links">
+      <a href="#">About</a>
+      <a href="#">Docs</a>
+      <a href="#">Pricing</a>
+    </div>
+    <div class="nav-buttons">
+      <button>Sign up</button>
+      <button class="login">Login</button>
+    </div>
+  </div>
 
-    <h1 class="gradient-text">Welcome to PlusChat</h1>
-    <p>Your community, your rules, your place to connect.</p>
+  <div class="hero">
+    <h1>A sharp new way to <span>chat</span></h1>
+    <p>Run your own chat server, control your data, and join a network of self-hosted instances. Built for privacy, simplicity and fun.</p>
+    <div class="input-container">
+      <input type="text" placeholder="yourname">
+      <span>#pluschat.com</span>
+      <button>Create</button>
+    </div>
+  </div>
 </body>
 </html>
